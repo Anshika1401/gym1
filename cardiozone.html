@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardio Zone - FitZone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://i.ibb.co/C97xxVM/FITZONE-20240920-170320-0000-photoaidcom-cropped.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000; /* Black background */
+            color: #FFFFFF; /* White text */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #FF0000;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .trainer-card {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .trainer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+        }
+        .trainer-image {
+            flex: 1;
+            text-align: center;
+        }
+        .trainer-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #FF0000;
+        }
+        .trainer-info {
+            flex: 3;
+            padding-left: 20px;
+        }
+        .trainer-info h2 {
+            color: #FF0000;
+            margin-bottom: 10px;
+        }
+        .trainer-info p {
+            line-height: 1.6;
+        }
+        .membership-section {
+            background-color: #282828;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        .membership-section h2 {
+            text-align: center;
+            color: #FF0000;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .membership-plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .plan {
+            background-color: #1A1A1A;
+            padding: 30px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px solid transparent;
+            transition: border 0.3s ease-in-out;
+        }
+        .plan:hover {
+            border: 2px solid #FF0000;
+        }
+        .plan h3 {
+            color: #FF0000;
+            margin-bottom: 10px;
+        }
+        .plan p {
+            color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #FF0000;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">☰</label>
+    <div class="logo-container">
+        <img src="https://i.ibb.co/P61MKq4/FITZONE-logo.png" alt="FitZone Logo" class="logo-img">
+        <label class="logo-text">FitZone</label>
+    </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>Meet Our Cardio Experts</h1>
+
+    <!-- Trainer Card 1 -->
+    <div class="trainer-card">
+        <div class="trainer-image">
+            <img src="cardio1.jpg" alt="Trainer Sarah Williams">
+        </div>
+        <div class="trainer-info">
+            <h2>Sarah Williams</h2>
+            <p>Cardio expert with 8+ years of experience in endurance training, marathons, and HIIT workouts. Helps clients boost cardiovascular health and stamina.</p>
+        </div>
+    </div>
+
+    <!-- Trainer Card 2 -->
+    <div class="trainer-card">
+        <div class="trainer-image">
+            <img src="cardio2.jpg" alt="Trainer Mike Johnson">
+        </div>
+        <div class="trainer-info">
+            <h2>Mike Johnson</h2>
+            <p>Specialist in interval training and cardio conditioning. Over 10 years of experience helping clients improve their heart health and endurance.</p>
+        </div>
+    </div>
+
+    <!-- Trainer Card 3 -->
+    <div class="trainer-card">
+        <div class="trainer-image">
+            <img src="cardio3.jpg" alt="Trainer Emma Stone">
+        </div>
+        <div class="trainer-info">
+            <h2>Emma Stone</h2>
+            <p>Certified personal trainer focusing on fat loss and cardio. Provides expert coaching in treadmill, cycling, and cross-training workouts.</p>
+        </div>
+    </div>
+
+    <!-- Membership Packages -->
+    <div class="membership-section">
+        <h2>Choose Your Cardio Membership Plan</h2>
+        <div class="membership-plans">
+            <!-- Basic Plan -->
+            <div class="plan">
+                <h3>Basic Plan</h3>
+                <p>1 Month Access</p>
+                <p>3 Cardio Sessions</p>
+                <p><strong>$59.99</strong></p>
+            </div>
+
+            <!-- Standard Plan -->
+            <div class="plan">
+                <h3>Standard Plan</h3>
+                <p>3 Months Access</p>
+                <p>7 Cardio Sessions</p>
+                <p><strong>$149.99</strong></p>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="plan">
+                <h3>Premium Plan</h3>
+                <p>6 Months Access</p>
+                <p>Unlimited Cardio Sessions</p>
+                <p><strong>$299.99</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 FitZone. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

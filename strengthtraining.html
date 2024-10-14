@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength Training - FitZone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://i.ibb.co/C97xxVM/FITZONE-20240920-170320-0000-photoaidcom-cropped.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #111111;
+            color: #FFFFFF;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 80px; /* Padding for the navbar */
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1E1E1E;
+            z-index: 999;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #FF0000;
+            text-align: center;
+            margin-bottom: 40px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .trainer-card {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .trainer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+        }
+        .trainer-image {
+            flex: 1;
+            text-align: center;
+        }
+        .trainer-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #FF0000;
+        }
+        .trainer-info {
+            flex: 3;
+            padding-left: 20px;
+        }
+        .trainer-info h2 {
+            color: #FF0000;
+            margin-bottom: 10px;
+        }
+        .trainer-info p {
+            line-height: 1.6;
+        }
+        .plan-select {
+            margin-top: 10px;
+            color: #000000;
+        }
+        .book-btn {
+            background-color: #FF0000;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .book-btn:hover {
+            background-color: #FF4C4C;
+        }
+        .membership-section {
+            background-color: #282828;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        .membership-section h2 {
+            text-align: center;
+            color: #FF0000;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .membership-plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .plan {
+            background-color: #1A1A1A;
+            padding: 30px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px solid transparent;
+            transition: border 0.3s ease-in-out;
+        }
+        .plan:hover {
+            border: 2px solid #FF0000;
+        }
+        .plan h3 {
+            color: #FF0000;
+            margin-bottom: 10px;
+        }
+        .plan p {
+            color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+        .plan p strong {
+            font-size: 1.2em;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #FF0000;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">☰</label>
+    <div class="logo-container">
+        <img src="https://i.ibb.co/P61MKq4/FITZONE-logo.png" alt="FitZone Logo" class="logo-img">
+        <label class="logo-text">FitZone</label>
+    </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li> <!-- Cart added in navbar -->
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>Meet Our Strength Training Experts</h1> <!-- Moved between the navbar and trainers -->
+
+    <!-- Trainer Card 1 -->
+    <div class="trainer-card">
+        <div class="trainer-image">
+            <img src="strength1.webp" alt="Trainer John Doe">
+        </div>
+        <div class="trainer-info">
+            <h2>John Doe</h2>
+            <p>Certified Strength Coach with 10+ years of experience. Specializes in hypertrophy training and performance enhancement.</p>
+
+            <!-- Dropdown to select plan -->
+            <select class="plan-select" id="plan-john" name="plan">
+                <option value="basic">Basic Plan - $49.99</option>
+                <option value="standard">Standard Plan - $129.99</option>
+                <option value="premium">Premium Plan - $249.99</option>
+            </select>
+            <!-- Book button -->
+            <a href="cart.html" class="book-btn" onclick="bookTrainer('john')">Book John Doe</a>
+        </div>
+    </div>
+
+    <!-- Trainer Card 2 -->
+    <div class="trainer-card">
+        <div class="trainer-image">
+            <img src="strength2.jpg" alt="Trainer Jane Smith">
+        </div>
+        <div class="trainer-info">
+            <h2>Jane Smith</h2>
+            <p>Functional strength expert with a focus on mobility and endurance. Helps clients build long-term strength and flexibility.</p>
+
+            <!-- Dropdown to select plan -->
+            <select class="plan-select" id="plan-jane" name="plan">
+                <option value="basic">Basic Plan - $49.99</option>
+                <option value="standard">Standard Plan - $129.99</option>
+                <option value="premium">Premium Plan - $249.99</option>
+            </select>
+            <!-- Book button -->
+            <a href="cart.html" class="book-btn" onclick="bookTrainer('jane')">Book Jane Smith</a>
+        </div>
+    </div>
+
+    <!-- Trainer Card 3 -->
+    <div class="trainer-card">
+        <div class="trainer-image">
+            <img src="strength3.jpg" alt="Trainer Alex Johnson">
+        </div>
+        <div class="trainer-info">
+            <h2>Alex Johnson</h2>
+            <p>Bodybuilding coach specializing in strength and physique training. Over 8 years of experience coaching athletes and fitness enthusiasts.</p>
+
+            <!-- Dropdown to select plan -->
+            <select class="plan-select" id="plan-alex" name="plan">
+                <option value="basic">Basic Plan - $49.99</option>
+                <option value="standard">Standard Plan - $129.99</option>
+                <option value="premium">Premium Plan - $249.99</option>
+            </select>
+            <!-- Book button -->
+            <a href="cart.html" class="book-btn" onclick="bookTrainer('alex')">Book Alex Johnson</a>
+        </div>
+    </div>
+
+    <!-- Membership Packages -->
+    <div class="membership-section">
+        <h2>Choose Your Membership Plan</h2>
+        <div class="membership-plans">
+            <!-- Basic Plan -->
+            <div class="plan">
+                <h3>Basic Plan</h3>
+                <p>1 Month Access</p>
+                <p>2 Training Sessions</p>
+                <p><strong>$49.99</strong></p>
+            </div>
+
+            <!-- Standard Plan -->
+            <div class="plan">
+                <h3>Standard Plan</h3>
+                <p>3 Month Access</p>
+                <p>5 Training Sessions</p>
+                <p><strong>$129.99</strong></p>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="plan">
+                <h3>Premium Plan</h3>
+                <p>6 Month Access</p>
+                <p>Unlimited Training Sessions</p>
+                <p><strong>$249.99</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 FitZone. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

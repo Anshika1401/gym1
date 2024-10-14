@@ -1,0 +1,240 @@
+<!-- Cart Page (cart.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - FitZone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #111111;
+            color: #FFFFFF;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding-top: 80px; /* Padding for the navbar */
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1E1E1E;
+            z-index: 999;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: flex-end;
+            padding: 15px;
+            margin: 0;
+        }
+
+        ul li {
+            margin: 0 15px;
+        }
+
+        ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+
+        ul li a:hover, .active {
+            background-color: #FF0000;
+            border-radius: 5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FF0000;
+            margin-bottom: 40px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .cart-table th, .cart-table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #444;
+        }
+
+        .cart-table th {
+            background-color: #282828;
+            color: #FF0000;
+        }
+
+        .cart-table tr:nth-child(even) {
+            background-color: #1A1A1A;
+        }
+
+        .cart-summary {
+            background-color: #282828;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cart-summary h2 {
+            color: #FF0000;
+        }
+
+        .cart-summary p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #FF0000;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #FF4C4C;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #FF0000;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <a href="index.html"><img src="https://i.ibb.co/P61MKq4/FITZONE-logo.png" alt="FitZone Logo" class="logo-img"></a>
+            <label class="logo-text">FitZone</label>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a class="active" href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Your Shopping Cart</h1>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Items will be dynamically added here -->
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <h2>Cart Summary</h2>
+            <p><strong>Subtotal:</strong> <span id="subtotal">$0.00</span></p>
+            <p><strong>Total:</strong> <span id="total">$0.00</span></p>
+            <a href="checkout.html" class="btn" id="checkout-btn">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 FitZone. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Retrieve cart items from localStorage or use an empty array
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to render cart items
+        function renderCart() {
+            const cartTableBody = document.getElementById('cart-items');
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+            
+            let subtotal = 0;
+            cartTableBody.innerHTML = ''; // Clear current cart table content
+            
+            cartItems.forEach(item => {
+                const total = item.quantity * item.price;
+                subtotal += total;
+                
+                const row = `
+                    <tr>
+                        <td>${item.product}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>$${total.toFixed(2)}</td>
+                        <td><button onclick="removeItem('${item.product}')">Remove</button></td>
+                    </tr>
+                `;
+                cartTableBody.innerHTML += row;
+            });
+
+            subtotalElement.innerText = `$${subtotal.toFixed(2)}`;
+            totalElement.innerText = `$${subtotal.toFixed(2)}`;
+        }
+
+        // Function to remove item from cart
+        function removeItem(productName) {
+            const index = cartItems.findIndex(item => item.product === productName);
+            if (index !== -1) {
+                if (cartItems[index].quantity > 1) {
+                    cartItems[index].quantity -= 1; // Decrease quantity
+                } else {
+                    cartItems.splice(index, 1); // Remove item if quantity is 1
+                }
+                localStorage.setItem('cart', JSON.stringify(cartItems)); // Update localStorage
+                renderCart(); // Re-render cart after removal
+            }
+        }
+
+        // Save cart and redirect to checkout
+        document.getElementById('checkout-btn').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            localStorage.setItem('cart', JSON.stringify(cartItems)); // Save cart to localStorage
+            window.location.href = 'checkout.html'; // Redirect to checkout page
+        });
+
+        // Initial render of cart
+        renderCart();
+    </script>
+</body>
+</html>

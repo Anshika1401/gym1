@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Training - FitZone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://i.ibb.co/C97xxVM/FITZONE-20240920-170320-0000-photoaidcom-cropped.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000; /* Black background */
+            color: #FFFFFF; /* White text */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 50px; /* Extra padding for footer space */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #FF0000; /* Red heading */
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .trainer {
+            margin-bottom: 40px;
+            background-color: #1A1A1A; /* Dark gray background */
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+        }
+        .trainer img {
+            border-radius: 10px;
+            width: 150px;
+            height: 170px;
+            margin-right: 20px;
+        }
+        .trainer-info {
+            flex: 1;
+        }
+        .trainer-info h2 {
+            color: #FF0000;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+        }
+        .trainer-info p {
+            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #FF0000;
+            color: #FFFFFF;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #CC0000;
+        }
+        .packages {
+            margin-top: 20px;
+            background-color: #2E2E2E;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .package-item {
+            margin-bottom: 10px;
+        }
+        .select-plan {
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+            background-color: #2E2E2E;
+            color: white;
+            border: 1px solid #FF0000;
+        }
+    </style>
+    <script>
+        function updateBookingLink(trainerId) {
+            var selectedPlan = document.getElementById("plan-" + trainerId).value;
+            var bookBtn = document.getElementById("book-btn-" + trainerId);
+            bookBtn.href = "cart.html?trainer=" + trainerId + "&plan=" + encodeURIComponent(selectedPlan);
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <h1>Meet Our Personal Trainers</h1>
+
+        <!-- Trainer 1 -->
+        <div class="trainer">
+            <img src="trainer1.avif" alt="Trainer 1">
+            <div class="trainer-info">
+                <h2>John Doe - Certified Strength Trainer</h2>
+                <p>Experience: 10+ years in strength and conditioning. John specializes in building personalized strength training programs for athletes and individuals looking to improve their physical fitness. His plans include weightlifting, functional training, and core development.</p>
+                <p><strong>Training Plans:</strong> Beginner, Intermediate, and Advanced programs available.</p>
+
+                <div class="packages">
+                    <div class="package-item">
+                        <h3>1 Month Package</h3>
+                        <p>Strength training, muscle endurance, 8 sessions. <strong>Price: $200</strong></p>
+                    </div>
+                    <div class="package-item">
+                        <h3>6 Month Package</h3>
+                        <p>Comprehensive strength training program, 48 sessions. <strong>Price: $1000</strong></p>
+                    </div>
+                    <div class="package-item">
+                        <h3>1 Year Package</h3>
+                        <p>Advanced strength and conditioning, personalized plans, 96 sessions. <strong>Price: $1800</strong></p>
+                    </div>
+                    <div class="package-item">
+                        <h3>2 Year Package</h3>
+                        <p>Long-term development plan with continuous improvement, 200 sessions. <strong>Price: $3200</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Select a Plan -->
+                <select id="plan-john" class="select-plan" onchange="updateBookingLink('john')">
+                    <option value="1 Month Package - $200">1 Month Package - $200</option>
+                    <option value="6 Month Package - $1000">6 Month Package - $1000</option>
+                    <option value="1 Year Package - $1800">1 Year Package - $1800</option>
+                    <option value="2 Year Package - $3200">2 Year Package - $3200</option>
+                </select>
+                <a href="cart.html" id="book-btn-john" class="btn" target="_blank">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Trainer 2 -->
+        <div class="trainer">
+            <img src="trainer2.webp" alt="Trainer 2">
+            <div class="trainer-info">
+                <h2>Jane Smith - Certified Nutrition and Fitness Coach</h2>
+                <p>Experience: 8+ years. Jane provides holistic training that combines physical exercise with nutrition coaching. Her focus is on fat loss, muscle gain, and lifestyle improvements through both exercise and diet.</p>
+                <p><strong>Training Plans:</strong> Weight loss, Cardio Endurance, and Customized Nutrition plans.</p>
+
+                <div class="packages">
+                    <div class="package-item">
+                        <h3>1 Month Package</h3>
+                        <p>Nutrition coaching + fat loss training, 8 sessions. <strong>Price: $220</strong></p>
+                    </div>
+                    <div class="package-item">
+                        <h3>6 Month Package</h3>
+                        <p>Comprehensive fat loss and muscle gain plan, 48 sessions. <strong>Price: $1200</strong></p>
+                    </div>
+                    <div class="package-item">
+                        <h3>1 Year Package</h3>
+                        <p>Complete fitness and nutrition overhaul, 96 sessions. <strong>Price: $2000</strong></p>
+                    </div>
+                    <div class="package-item">
+                        <h3>2 Year Package</h3>
+                        <p>Long-term fitness transformation program, 200 sessions. <strong>Price: $3500</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Select a Plan -->
+                <select id="plan-jane" class="select-plan" onchange="updateBookingLink('jane')">
+                    <option value="1 Month Package - $220">1 Month Package - $220</option>
+                    <option value="6 Month Package - $1200">6 Month Package - $1200</option>
+                    <option value="1 Year Package - $2000">1 Year Package - $2000</option>
+                    <option value="2 Year Package - $3500">2 Year Package - $3500</option>
+                </select>
+                <a href="cart.html" id="book-btn-jane" class="btn" target="_blank">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Trainer 3 -->
+        <div class="trainer">
+            <img src="trainer3.webp" alt="Trainer 3">
+            <div class="trainer-info">
+                <h2>Michael Lee - Functional Fitness Specialist</h2>
+                <p>Experience: 5+ years. Michael focuses on functional fitness and bodyweight exercises. His programs are designed for individuals looking to improve daily movement, flexibility, and overall strength without heavy equipment.</p>
+                <p><strong>Training Plans:</strong> Bodyweight training, Flexibility, and Posture improvement.</p>
+
+                <div class="packages">
+                    <div class="package-item">
+                        <h3>1 Month Package</h3>
+                        <p>Functional fitness, flexibility training, 8 sessions. <strong>Price: $180</strong></p>
+                    </div>
+                    <div class="package-item">
+                        <h3>6 Month Package</h3>
+                        <p>Comprehensive bodyweight training, 48 sessions. <strong>Price: $900</strong></p>
+                    </div>
+                    <div class="package-item">
+                        <h3>1 Year Package</h3>
+                        <p>Functional strength and movement improvement, 96 sessions. <strong>Price: $1700</strong></p>
+                    </div>
+                    <div class="package-item">
+                        <h3>2 Year Package</h3>
+                        <p>Long-term bodyweight strength training, 200 sessions. <strong>Price: $3000</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Select a Plan -->
+                <select id="plan-michael" class="select-plan" onchange="updateBookingLink('michael')">
+                    <option value="1 Month Package - $180">1 Month Package - $180</option>
+                    <option value="6 Month Package - $900">6 Month Package - $900</option>
+                    <option value="1 Year Package - $1700">1 Year Package - $1700</option>
+                    <option value="2 Year Package - $3000">2 Year Package - $3000</option>
+                </select>
+                <a href="cart.html" id="book-btn-michael" class="btn" target="_blank">Book Now</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 FitZone. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>
